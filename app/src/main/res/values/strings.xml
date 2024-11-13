@@ -4,7 +4,7 @@
     <string name="login">Masuk</string>
     <string name="message_welcome_page">Ingin berbagi cerita dan melihat momen seru dari teman-teman? Di StoryLensApp, Anda bisa menjelajahi momen-momen menarik, mengikuti perkembangan harian teman-teman, dan mengabadikan setiap kisah unik Anda. Temukan inspirasi, bagikan pengalaman, dan jadilah bagian dari komunitas yang saling terhubung melalui cerita sehari-hari. Ayo mulai berbagi kisah Anda dengan StoryLensApp!</string>
     <string name="title_welcome_page">Selamat datang di StoryLensApp</string>
-    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="title_signup_page">Belum ada Akun? Buat dulu yuk</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="message_login_page">Masukkan dulu datamu ya</string>
