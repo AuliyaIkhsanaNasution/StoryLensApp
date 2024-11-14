@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
 
 class SignupActivity : AppCompatActivity() {
     private val viewModel by viewModels<SignupViewModel> {
-        ViewModelFactory.getInstance(this, ApiConfig.getApiService("token"))
+        ViewModelFactory.getInstance(this, ApiConfig().getApiService("token"))
     }
 
     private lateinit var binding: ActivitySignupBinding
@@ -34,7 +34,7 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userRepository = Injection.userRepositoryProvide(this, ApiConfig.getApiService("token"))
+        userRepository = Injection.userRepositoryProvide(this, ApiConfig().getApiService("token"))
 
         setupView()
         setupAction()

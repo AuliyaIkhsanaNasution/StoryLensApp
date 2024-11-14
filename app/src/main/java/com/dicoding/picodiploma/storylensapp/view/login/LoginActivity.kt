@@ -30,7 +30,7 @@ import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
     private val viewModel by viewModels<LoginViewModel> {
-        ViewModelFactory.getInstance(this, ApiConfig.getApiService("token"))
+        ViewModelFactory.getInstance(this, ApiConfig().getApiService("token"))
     }
     private lateinit var binding: ActivityLoginBinding
     private lateinit var userRepository: UserRepository
@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         userPreference = UserPreference.getInstance(this.dataStore)
-        userRepository = Injection.userRepositoryProvide(this, ApiConfig.getApiService("token"))
+        userRepository = Injection.userRepositoryProvide(this, ApiConfig().getApiService("token"))
 
         setupView()
         setupAction()

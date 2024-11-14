@@ -16,5 +16,9 @@
     <string name="this_logo">this logo</string>
     <string name="password_error">password harus lebih dari 8 karakter</string>
     <string name="email_error">email harus menggunakan @ didalamnya</string>
+    <string name="image">Image</string>
+    <string name="title_story">title story</string>
+    <string name="desc">desc</string>
+    <string name="createat">createat</string>
 
 </resources>
