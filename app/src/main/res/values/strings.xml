@@ -9,9 +9,12 @@
     <string name="password">Password</string>
     <string name="message_login_page">Masukkan dulu datamu ya</string>
     <string name="title_login_page">Yuk Login Ke Akun Kamu</string>
-    <string name="name">Nama</string>
+    <string name="name">Enter your name</string>
     <string name="message_main_page">Selamat Belajar di Dicoding.</string>
     <string name="greeting">Halo %1$s,</string>
     <string name="logout">Keluar</string>
     <string name="this_logo">this logo</string>
+    <string name="password_error">password harus lebih dari 8 karakter</string>
+    <string name="email_error">email harus menggunakan @ didalamnya</string>
+
 </resources>
