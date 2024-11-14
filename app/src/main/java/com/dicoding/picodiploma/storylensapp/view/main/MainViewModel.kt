@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.dicoding.picodiploma.storylensapp.data.repository.UserRepository
 import com.dicoding.picodiploma.storylensapp.data.pref.UserModel
 import com.dicoding.picodiploma.storylensapp.data.repository.ListStoryRepository
+import com.dicoding.picodiploma.storylensapp.data.response.DetailtStoryResponse
 import com.dicoding.picodiploma.storylensapp.data.response.ListStoryItem
 import kotlinx.coroutines.launch
 
@@ -26,6 +27,14 @@ class MainViewModel(private val repository: UserRepository,
         try {
             val response = storyRepository.getStories()
             _storyList.postValue(response.listStory)
+        } catch (e: Exception) {
+            throw e
+        }
+    }
+
+    suspend fun getStoryById(storyId: String): DetailtStoryResponse {
+        try {
+            return storyRepository.getStoryById(storyId)
         } catch (e: Exception) {
             throw e
         }

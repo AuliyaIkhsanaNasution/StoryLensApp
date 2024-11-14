@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginWithAnimation">
         <activity
+            android:name=".view.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.welcome.WelcomeActivity"
             android:exported="false" />
         <activity

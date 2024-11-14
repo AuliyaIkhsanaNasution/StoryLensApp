@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.storylensapp.view.main
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.storylensapp.R
 import com.dicoding.picodiploma.storylensapp.data.response.ListStoryItem
+import com.dicoding.picodiploma.storylensapp.view.DetailActivity
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.StoryViewHolder>() {
 
@@ -52,6 +54,12 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.StoryViewHolder>() {
             tvItemDescription.text = story.description
             tvCreatedAt.text = story.createdAt
 
+            // Intent untuk membuka detail cerita
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailActivity::class.java)
+                intent.putExtra("STORY_ID", story.id)
+                itemView.context.startActivity(intent)
+            }
 
         }
     }
