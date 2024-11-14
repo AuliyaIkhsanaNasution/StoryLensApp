@@ -10,13 +10,14 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.picodiploma.storylensapp.data.api.ApiConfig
 import com.dicoding.picodiploma.storylensapp.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.storylensapp.view.ViewModelFactory
 import com.dicoding.picodiploma.storylensapp.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<MainViewModel> {
-        ViewModelFactory.getInstance(this)
+    private val viewModel: MainViewModel by viewModels {
+        ViewModelFactory.getInstance(this, ApiConfig.getApiService("token"))
     }
     private lateinit var binding: ActivityMainBinding
 

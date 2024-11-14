@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.storylensapp.data.pref
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -14,21 +15,25 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
-    suspend fun saveSession(user: UserModel) {
-        dataStore.edit { preferences ->
-            preferences[EMAIL_KEY] = user.email
-            preferences[TOKEN_KEY] = user.token
-            preferences[IS_LOGIN_KEY] = true
+    suspend fun saveSession(user: UserModel?) {
+        user?.let {
+            dataStore.edit { preferences ->
+                preferences[EMAIL_KEY] = it.email
+                preferences[TOKEN_KEY] = it.token
+                preferences[IS_LOGIN_KEY] = true
+            }
         }
     }
 
     fun getSession(): Flow<UserModel> {
         return dataStore.data.map { preferences ->
-            UserModel(
+            val userModel = UserModel(
                 preferences[EMAIL_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[IS_LOGIN_KEY] ?: false
             )
+            Log.d("UserPreference", "User session retrieved: $userModel")
+            userModel
         }
     }
 
