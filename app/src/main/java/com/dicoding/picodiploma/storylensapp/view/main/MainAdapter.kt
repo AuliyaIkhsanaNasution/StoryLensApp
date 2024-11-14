@@ -1,17 +1,20 @@
 package com.dicoding.picodiploma.storylensapp.view.main
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.storylensapp.R
 import com.dicoding.picodiploma.storylensapp.data.response.ListStoryItem
 import com.dicoding.picodiploma.storylensapp.view.DetailActivity
+import androidx.core.util.Pair
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.StoryViewHolder>() {
 
@@ -58,7 +61,17 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.StoryViewHolder>() {
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
                 intent.putExtra("STORY_ID", story.id)
-                itemView.context.startActivity(intent)
+
+                val optionsCompat: ActivityOptionsCompat =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        itemView.context as Activity,
+                        Pair(imgItemPhoto, "image"),
+                        Pair(tvItemName, "title"),
+                        Pair(tvItemDescription, "desc"),
+                        Pair(tvCreatedAt, "createat"),
+                    )
+
+                itemView.context.startActivity(intent, optionsCompat.toBundle())
             }
 
         }
